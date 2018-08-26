@@ -3,18 +3,20 @@ To use ROS across multiple computers, you have to select a device to act as a ma
 
 ## Set up ROS master computer
 This device will be running roscore. On this device, do the following:
-* `~$ export ROS_MASTER_URI=http://<ip address of master computer>:11311`
-* `~$ export ROS_IP=<ip address of master computer>`
+* `~$ export ROS_MASTER_URI="http://<ip address of master computer>:11311"`
+* `~$ export ROS_IP="<ip address of master computer>"`
 
 ## Set up ROS slave computer(s)
 The device(s) will be subscribing to roscore from the Master device. Run the following:
-* `~$ export ROS_MASTER_URI=https://<ip address of master computer>:11311`
-* `~$ export ROS_IP=<ip of slave device>`
+* `~$ export ROS_MASTER_URI="https://<ip address of master computer>:11311"`
+* `~$ export ROS_IP="<ip of slave device>"`
 
 ### Note:
 For each shell instance, we need to run `export ROS_IP=...`, so it is advisable to create an alias for it in your .bashrc
 
 You should be able to test this by running a tutlesim node and checking the rqt_graph on either device
+
+Forgetting to put the inverted commas results in communication failure. This is because ROS variables must be in the form of strings.
 
 
 # Building messages from source
