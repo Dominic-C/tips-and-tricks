@@ -29,6 +29,8 @@ This was my error:
 
 To solve this, I did a bit of googling and found that i needed to give my username permissions to access the serial port. This was done by adding my username to the dialout group. `sudo usermod -a -G dialout $USER`. ($USER is an environmental variable, just type it as is)
 
+After which, you have to re-login to enable this permission change.
+
 Usermod is a command used to change attributes of existing users via command line. The dialout group allows you to access serial ports by reading and writing to the files in `/dev/tty*`. If you like, you can list all the devices in the `dialout` group by running `find /dev -group dialout`.
 
 
