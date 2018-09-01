@@ -4,6 +4,11 @@ On computer with file you wish to transfer
 
 `scp <file> <target username>@<ip address>:/<location to save file>`
 
+# Rsync
+Copy file from your computer to target computer
+
+`rsync -av <location of file> <target username>@<target IP address>:/<location to save file>`
+
 # Dealing with "dpkg-lock" issues
 This occurs when apt processes are running and something you are trying to run wants to use the same resources
 
