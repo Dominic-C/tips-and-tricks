@@ -28,6 +28,17 @@ OR
 
 Longer article for this issue can be found [here](https://www.tecmint.com/fix-unable-to-lock-the-administration-directory-var-lib-dpkg-lock/)
 
+In another instance of this issue, i was forced to remove the lock, because I could not find any apt processes. Apparently this has something to do with closing an updating window. I have not fully read through the [article](https://itsfoss.com/could-not-get-lock-error/), but this was what i did.
+
+```
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+
+# then reconfigure the package with
+sudo dpkg --configure -a
+```
+
 # Using grep
 `grep` is a pattern search tool in unix based Operating Systems. It recognizes and prints out lines with a user defined pattern in the terminal output.
 
