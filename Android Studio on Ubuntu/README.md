@@ -28,3 +28,6 @@ To add android studio to your PATH, add this line to the end of your `.bashrc`.
 Note: putting $PATH: before your file location gives it a lower priority than system files. This is the recommended way to add path to your system because PATHs defined by Linux developers will have higher priority on execution.
 
 in other words, we are appending the PATH to our priority list instead of prepending it.
+
+## Installing Drivers for physical Android Device
+run `sudo apt-get install android-tools-adb`. Then follow the instructions written in this [github repository](https://github.com/snowdream/51-android) to install the necessary udev rules into your system.
