@@ -32,6 +32,13 @@ $ git checkout -b testing_2 testing
 ```
 
 # Committing
+my usual workflow is to do a `git commit -m "<Commit description>"` when i have single line commit headings or a `git commit` when I have a couple of lines i wish to write in the commit
+
+Some people do a `git commit -am "<commit description>"` which stages all changed files and commits them in a single line, but has less fine control on the staging area.
+
+**flags**
+-m: Message
+-a: all. This tells git to automatically stage all files that have been modified and deleted, but new files are not affected (git does'nt know unless you tell it)
 
 ## Amending commits
 
@@ -43,7 +50,8 @@ we can run:
 $ git commit --amend -m "Amended commit message"
 ```
 
-Note: commit hash changes with this command, because commit hashes takes into account commit names.
+**Note:** commit hash changes with this command, because commit hashes takes into account commit names.
+Chaning the commit hash results in changing its git history. We should only do this when the commits are local and are not pushed to any shared repository.
 
 ### Amending commit contents
 with the --amend option in git commit, we can also add files to our last commit
@@ -53,11 +61,15 @@ For instance, if we wanted to add `BomoSort.py` into our last commit but forgot 
 $ git add Bomosort.py
 $ git commit --amend
 ```
+**Note:** commit hash changes with this command, because commit hashes takes into account commit names.
+Chaning the commit hash results in changing its git history. We should only do this when the commits are local and are not pushed to any shared repository.
 
 # Pull
--- insert standard code for pull --
+the general format for git pull is `$ git pull <options> <repository>`, if nothing is specified, it fetches and updates all branches existing in the remote repository.
 
-An alternative to git pull which many git aficianados use is a git fetch followed by a merge. This is effectively the same thing as a pull.
+An alternative to git pull which many git aficianados use is a `git fetch` followed by a `git merge`. This is effectively the same thing as a `git pull`, but better practice.
+
+`git fetch` fetches the latest versions of files pushed to the repository but doesnt merge them to your local sandbox. This means you can view the checkout what your colleagues have pushed without merging their files into your local sandbox.
 
 # Push
 
@@ -78,10 +90,18 @@ $ git log
 2. Switch to branch `prototypeBr` and do a cherry pick
 ```
 $ git checkout prototypeBr
-$ git cherry-pick 1bghe2632
+$ git cherry-pick 1bghe2632 # where 1bghe2632 was the commit hash
 ```
+3. Now that we have the commits in our new branch, we can remove the commits from the master branch. We do this by making a reset on the master branch. 
 
+There are 3 types of resets we should know about, use any one of these depending on the situation.
+* Soft reset:`git reset --soft <hash of commit to roll back to>`. This rolls back the commit specified, but keeps changes in staging area (no loss of work)
+* Mixed reset, which is the default: `git reset <hash to roll back to>`. This rolls back the commits, but changes are kept in the working directory.
+* Hard reset: `git reset --hard <hash to roll back to>`. Rolls back to the commit, deletes all changes to **tracked files** after this hash in your working directory. Leaves any untracked files alone. i.e. does not touch files that were not introduced to git by git add and git commit.
+
+If you really wanted to get a clean workspace and remove all untracked files, you can do a `git clean -df`. `-d` get rids of any untracked directories while `-f` gets rid of any untracked files. (this will be good if you accidentally unzipped a file and added it to the staging area)
 
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
 * [Branching and Merging](https://www.youtube.com/watch?v=FyAAIHHClqI)
+* [Fixing common mistakes and undoing bad commits](https://www.youtube.com/watch?v=FdZecVxzJbk&t=596s)
