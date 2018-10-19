@@ -31,3 +31,6 @@ in other words, we are appending the PATH to our priority list instead of prepen
 
 ## Installing Drivers for physical Android Device
 run `sudo apt-get install android-tools-adb`. Then follow the instructions written in this [github repository](https://github.com/snowdream/51-android) to install the necessary udev rules into your system.
+
+## Using git with android studio projects
+When uploading android projects to github, include the gradle files if you want the programs to be able to run right after pulling. If you did'nt know, Android studio has a built in git control system.

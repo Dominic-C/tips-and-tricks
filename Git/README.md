@@ -22,7 +22,6 @@ note: to check the differences between two files, i can run `git diff`
 
 
 # Branching
-
 Creating a branch from an existing branch. First you have to switch to the branch you wish to branch from. Then make a branch from there.
 
 For instance, say i have a branch `testing`, and i want to create a branch `testing_2`. We can do the following
@@ -100,6 +99,15 @@ There are 3 types of resets we should know about, use any one of these depending
 * Hard reset: `git reset --hard <hash to roll back to>`. Rolls back to the commit, deletes all changes to **tracked files** after this hash in your working directory. Leaves any untracked files alone. i.e. does not touch files that were not introduced to git by git add and git commit.
 
 If you really wanted to get a clean workspace and remove all untracked files, you can do a `git clean -df`. `-d` get rids of any untracked directories while `-f` gets rid of any untracked files. (this will be good if you accidentally unzipped a file and added it to the staging area)
+
+# Adding files to .gitignore after they have been in your repo for several commits
+Updating your .gitignore is only useful if you have new files you want to ignore and have not committed yet. To ignore already committed files, we can do the following:
+
+```
+$ git rm -r --cached .
+$ git add .
+$ git commit -m "Clean up ignored files"
+```
 
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
