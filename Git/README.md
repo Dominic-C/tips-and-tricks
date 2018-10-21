@@ -30,7 +30,7 @@ $ git checkout testing
 $ git checkout -b testing_2 testing
 ```
 
-# Committing
+# Git Commit
 my usual workflow is to do a `git commit -m "<Commit description>"` when i have single line commit headings or a `git commit` when I have a couple of lines i wish to write in the commit
 
 Some people do a `git commit -am "<commit description>"` which stages all changed files and commits them in a single line, but has less fine control on the staging area.
@@ -63,16 +63,43 @@ $ git commit --amend
 **Note:** commit hash changes with this command, because commit hashes takes into account commit names.
 Chaning the commit hash results in changing its git history. We should only do this when the commits are local and are not pushed to any shared repository.
 
-# Pull
+# Git Pull
 the general format for git pull is `$ git pull <options> <repository>`, if nothing is specified, it fetches and updates all branches existing in the remote repository.
 
 An alternative to git pull which many git aficianados use is a `git fetch` followed by a `git merge`. This is effectively the same thing as a `git pull`, but better practice.
 
 `git fetch` fetches the latest versions of files pushed to the repository but doesnt merge them to your local sandbox. This means you can view the checkout what your colleagues have pushed without merging their files into your local sandbox.
 
-# Push
+# Git Push
 
-# Cherry pick
+# Cherry Pick
+
+
+# Git Stash
+What git stash does is put all your unstaged and uncommitted changes into deltas (differences between two files) and store them into a stash. Then it removes those differences from your working copy and reverts it back to the last committed version.
+
+To do a git stash, we can simply run
+```
+$ git stash
+OR
+$ git stash save "message that describes the stash"
+```
+To view the stash, we can run
+```
+$ git stash list
+```
+
+To reapply the stash, we can run
+```
+$ git stash apply <stash name, typically "stash@{0}"> # note, this applies only single stashes and does not remove them from the stash list
+OR
+$ git stash pop # applies stash and removes it from stash list
+```
+
+If you need to clear the stash, you can run
+```
+$ git stash clear
+```
 
 # Fixing Huge Messes
 
