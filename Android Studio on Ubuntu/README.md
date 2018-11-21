@@ -34,3 +34,8 @@ run `sudo apt-get install android-tools-adb`. Then follow the instructions writt
 
 ## Using git with android studio projects
 When uploading android projects to github, include the gradle files if you want the programs to be able to run right after pulling. If you did'nt know, Android studio has a built in git control system.
+
+## Developing for Android with Java
+There are two main languages we can use to write Java apps. One of them is Kotlin, and the other is Java.
+
+Here is a link to a playlist for developing Android Apps with Java, recommended by my professor: [Getting Started with Android Development](https://www.youtube.com/watch?v=viRDj9jFjSk&list=PLXiaMWHbNgp0I0FnFiUh7o4TDACd9ETs6)
