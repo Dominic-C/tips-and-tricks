@@ -136,6 +136,18 @@ $ git add .
 $ git commit -m "Clean up ignored files"
 ```
 
+# Reverting merge
+```
+$ git revert -m 1 dd8d6f587fa24327d5f5afd6fa8c3e604189c8d4>
+```
+
+# Resolving a merge conflict by keeping incoming changes instead of your own
+```
+$ git checkout --theirs <file name>
+# followed by
+$ git add <filename>
+```
+
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
 * [Branching and Merging](https://www.youtube.com/watch?v=FyAAIHHClqI)
