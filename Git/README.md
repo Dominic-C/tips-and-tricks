@@ -148,6 +148,10 @@ $ git checkout --theirs <file name>
 $ git add <filename>
 ```
 
+# Merging one branch into another
+1. checkout the branch you wanna merge into
+2. `git merge branchname`
+
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
 * [Branching and Merging](https://www.youtube.com/watch?v=FyAAIHHClqI)
