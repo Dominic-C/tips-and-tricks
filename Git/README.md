@@ -159,6 +159,9 @@ if you checkout a commit, you will be known to be in a state known as the Detach
 2. `git branch new-branch`
 3. `git checkout new-branch`
 
+# Removing untracked files
+`git clean -n` shows the files that would be deleted. If you are happy with the files that are about to be deleted, you can run either `git clean -i` for interactive mode or `git clean -h` if you need more options. 
+
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
 * [Branching and Merging](https://www.youtube.com/watch?v=FyAAIHHClqI)
