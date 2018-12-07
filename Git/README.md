@@ -152,6 +152,13 @@ $ git add <filename>
 1. checkout the branch you wanna merge into
 2. `git merge branchname`
 
+# Creating another branch from a commit
+if you checkout a commit, you will be known to be in a state known as the Detached HEAD. To make a new branch from the detached HEAD state, you can do the following.
+
+1. `git checkout <SHA>`
+2. `git branch new-branch`
+3. `git checkout new-branch`
+
 # Resources
 * [Intro to git core concepts](https://www.youtube.com/watch?v=uR6G2v_WsRA)
 * [Branching and Merging](https://www.youtube.com/watch?v=FyAAIHHClqI)
